@@ -8,7 +8,7 @@ var series = [
   // ["ETH",1.4],
   // ["CHN",0.6],
   // ["KEN",2.5],
-  ["IND",1.2],
+  ["IND",0],
   // ["VNM",0.5],
   // ["RUS",170]
             ];
@@ -67,7 +67,7 @@ map = new Datamap({//need global var
   data: dataset,
   geographyConfig: {
   responsive: true,
-      borderColor: 'rgb(17,119,225,0.75)',
+      borderColor: '#1a1a1a',
       highlightBorderWidth: 1,
       highlightFillOpacity: 1,
       // don't change color on mouse hover
@@ -84,10 +84,10 @@ return geo['fillColor'] || '#1177e1'
           // don't show tooltip if country don't present in dataset
           if (!data) { return ; }
           // tooltip content
-          return ['',
-              '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
-                  '<br>' + data.partnerLink + ' hectares',
-                  ''].join('');        
+          // return ['',
+          //     '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
+          //         '<br>' + data.partnerLink + ' hectares',
+          //         ''].join('');        
                   
       },
       done: function(datamap) {
