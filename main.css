@@ -20,17 +20,17 @@ div#world:before {
     .datamap path.datamaps-graticule{
         stroke:none!important;
     }
-    /* div.hoverinfo {
+    div.hoverinfo {
     background-color: #FFF;
     box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.22);
     font-size: 16px;
     padding: 0.5rem 1rem;
     border-radius: 6px;
     color: #2824f1ab;
-    } */
-    /* .datamaps-hoverover {
+    }
+    .datamaps-hoverover {
             margin-left: 350px;
-    } */
+    }
     path[data-info] {
         cursor:pointer;
     }
