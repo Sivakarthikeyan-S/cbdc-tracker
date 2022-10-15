@@ -1,51 +1,52 @@
 var series = [
-  ["PHL",20],
-  ["HTI",20],
-  ["DNK",20],
-  ["NLD",20],
-  ["BEL",20],
-  ["IRQ",20],
-  ["JOR",20],
-  ["CZE",20],
-  ["SVK",20],
-  ["AUT",20],
-  ["SVN",20],
-  ["ITA",20],
-  ["EST",20],
-  ["MEX",20],
-  ["FIN",20],
-  ["LVA",20],
-  ["LTU",20],
-  ["USA",20],
-  ["ZAF",20],
-  ["NAM",20],
-  ["MDG",20],
-  ["TZA",20],
-  ["ZWE",20],
-  ["PAK",20],
-  ["UGA",20],
-  ["KEN",20],
-  ["ZMB",20],
-  ["CHE",20],
-  ["GBR",20],
-  ["TUN",20],
-  ["MAR",20],
-  ["ESP",20],
-  ["PRT",20],
-  ["IND",20],
-  ["IRL",20],
-  ["VNM",20],
-  ["YEM",20],
-  ["OMN",20],
-  ["EGY",20],
-  ["ARG",20],
-  ["PER",20],
-  ["BGD",20],
-  ["ISL",20],
-  ["POL",20],
-  ["DEU",20],
-  ["NOR",20],
-  ["BGD",20],
+  ["ECU",20],
+  ["PHL",40],
+  ["HTI",40],
+  ["DNK",40],
+  ["NLD",40],
+  ["BEL",40],
+  ["IRQ",40],
+  ["JOR",40],
+  ["CZE",40],
+  ["SVK",40],
+  ["AUT",40],
+  ["SVN",40],
+  ["ITA",40],
+  ["EST",40],
+  ["MEX",40],
+  ["FIN",40],
+  ["LVA",40],
+  ["LTU",40],
+  ["USA",40],
+  ["ZAF",40],
+  ["NAM",40],
+  ["MDG",40],
+  ["TZA",40],
+  ["ZWE",40],
+  ["PAK",40],
+  ["UGA",40],
+  ["KEN",40],
+  ["ZMB",40],
+  ["CHE",40],
+  ["GBR",40],
+  ["TUN",40],
+  ["MAR",40],
+  ["ESP",40],
+  ["PRT",40],
+  ["IND",40],
+  ["IRL",40],
+  ["VNM",40],
+  ["YEM",40],
+  ["OMN",40],
+  ["EGY",40],
+  ["ARG",40],
+  ["PER",40],
+  ["BGD",40],
+  ["ISL",40],
+  ["POL",40],
+  ["DEU",40],
+  ["NOR",40],
+  ["BGD",40],
   ["THA",60],
   ["HUN",60],
   ["AUS",60],
@@ -62,13 +63,15 @@ var series = [
   ["BRA",60],
   ["KOR",60],
   ["ISR",60],
-  ["NGA",100],
-  ["CAN",100],
-  ["SAU",100],
-  ["URY",100],
-  ["FRA",100],
-  ["GHA",100],
-  ["CHN",100]
+  ["NGA",80],
+  ["CAN",80],
+  ["SAU",80],
+  ["URY",80],
+  ["FRA",80],
+  ["GHA",80],
+  ["CHN",80],
+  ["JAM",100],
+  ["BHS",100]
 ];
 
 var dataset = {};
@@ -85,7 +88,7 @@ var maxValue = Math.max.apply(null, onlyValues);
 // color can be whatever you wish
 var paletteScale = d3.scale.linear()
       .domain([minValue,maxValue])
-      .range(["#87CEEB","#0055e1"]);  // color
+      .range(["#1177e1","#85acf5"]);  // colorw
 // fill dataset in appropriate format
 series.forEach(function(item){ //
   // item example value ["USA", 36.2]
@@ -131,7 +134,7 @@ function init() {
       // don't change color on mouse hover
       highlightFillColor: function(geo) {
           if (typeof geo.partnerLink !== "undefined") {
-            return '#1177E1';
+            return '#fff';
           }
           return geo['fillColor'] || '#1f1f1f'
           
@@ -144,20 +147,32 @@ function init() {
         // tooltip content
         if (data.partnerLink <= 20) {
           return ['',
-            '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
+            '<div style="opacity:1; color:#fa0000" class="hoverinfo">' + geo.properties.name,
+                '<br>' + 'Cancelled',
+                ''].join('');        
+        }
+        if (data.partnerLink <= 40) {
+          return ['',
+            '<div style="opacity:1; color:#006D5B" class="hoverinfo">' + geo.properties.name,
                 '<br>' + 'Research',
                 ''].join('');        
         }
         if (data.partnerLink == 60) {
           return ['',
-            '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
+            '<div style="opacity:1; color:#8F00FF" class="hoverinfo">' + geo.properties.name,
                 '<br>' + 'Proof of concept',
+                ''].join('');        
+        }
+        if (data.partnerLink == 80) {
+          return ['',
+            '<div style="opacity:1; color:#FF4500" class="hoverinfo">' + geo.properties.name,
+                '<br>' + 'Pilot',
                 ''].join('');        
         }
         if (data.partnerLink == 100) {
           return ['',
-            '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Pilot',
+            '<div style="opacity:1; color:#1177e1" class="hoverinfo">' + geo.properties.name,
+                '<br>' + 'Launched',
                 ''].join('');        
         }
       },
