@@ -146,34 +146,44 @@ function init() {
         if (!data) { return ; }
         // tooltip content
         if (data.partnerLink <= 20) {
-          return ['',
-            '<div style="opacity:1; color:#fa0000" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Cancelled',
-                ''].join('');        
+          return [
+            '',
+            '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
+            '<br>' + '<p style="color:#fa0000" >Cancelled',
+            '',
+          ].join('');
         }
         if (data.partnerLink <= 40) {
-          return ['',
-            '<div style="opacity:1; color:#006D5B" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Research',
-                ''].join('');        
+          return [
+            '',
+            '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
+            '<br>' + '<p style="color:#006D5B" >Research',
+            '',
+          ].join('');
         }
         if (data.partnerLink == 60) {
-          return ['',
-            '<div style="opacity:1; color:#8F00FF" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Proof of concept',
-                ''].join('');        
+          return [
+            '',
+            '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
+            '<br>' + '<p style="color:#8F00FF" >Proof of concept',
+            '',
+          ].join('');
         }
         if (data.partnerLink == 80) {
-          return ['',
-            '<div style="opacity:1; color:#FF4500" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Pilot',
-                ''].join('');        
+          return [
+            '',
+            '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
+            '<br>' + '<p style="color:#FF4500" >Pilot',
+            '',
+          ].join('');
         }
         if (data.partnerLink == 100) {
-          return ['',
-            '<div style="opacity:1; color:#1177e1" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Launched',
-                ''].join('');        
+          return [
+            '',
+            '<div style="opacity:1;" class="hoverinfo">' + geo.properties.name,
+            '<br>' + '<p style="color:#1177e1" >Launched',
+            '',
+          ].join('');
         }
       },
       done: function(datamap) {
