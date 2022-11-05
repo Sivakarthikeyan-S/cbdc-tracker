@@ -1,26 +1,38 @@
 body{
     background:#000;
-  }
+}
+
 div#world:before {
-        content:"";
-        position: absolute;
-        top:91px;
-        /* width:300px;
-        height: 300px;
-    background: #07435A;
-		background: -webkit-radial-gradient(70% top,#f2f2f2,#ededed);
-		background: radial-gradient(at 70% top,#f2f2f2,#ededed);
-		box-shadow: 0px 20px 405px rgba(0,0,0,0.18);
-	-moz-box-shadow: 0px 20px 405px  rgba(0,0,0,0.18);
-	-webkit-box-shadow: 0px 20px 40px  rgba(0,0,0,0.18);
-	-o-box-shadow: 0px 20px 40px  rgba(0,0,0,0.18); */
+    content:"";
+    position: absolute;
+    top:91px;
+    width:300px;
+    height: 300px;
+    /* background: #07435A;
+    background: -webkit-radial-gradient(70% top,#f2f2f2,#ededed);
+    background: radial-gradient(at 70% top,#f2f2f2,#ededed);
+    box-shadow: 0px 20px 405px rgba(0,0,0,0.18);
+    -moz-box-shadow: 0px 20px 405px  rgba(0,0,0,0.18);
+    -webkit-box-shadow: 0px 20px 40px  rgba(0,0,0,0.18);
+    -o-box-shadow: 0px 20px 40px  rgba(0,0,0,0.18); */
     border-radius: 50%;
     z-index:-1;
-    }
-    .datamap path.datamaps-graticule{
-        stroke:none!important;
-    }
-    div.hoverinfo {
+    animation-name: world;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes world {
+    from { background-position-x: 0px; }
+    to { background-position-x: 210px; }
+  }
+
+.datamap path.datamaps-graticule{
+    stroke:none!important;
+}
+
+div.hoverinfo {
     background-color: #FFF;
     box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.22);
     font-size: 18px;
@@ -28,10 +40,12 @@ div#world:before {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     color: #140901ab;
-    }
-    .datamaps-hoverover {
-            margin-left: 350px;
-    }
-    path[data-info] {
-        cursor:pointer;
-    }
+}
+
+.datamaps-hoverover {
+    margin-left: 350px;
+}
+
+path[data-info] {
+    cursor:pointer;
+}

@@ -1,77 +1,103 @@
 var series = [
   ["ECU",20],
-  ["PHL",40],
-  ["HTI",40],
+  ["SEN",20],
   ["DNK",40],
-  ["NLD",40],
-  ["BEL",40],
-  ["IRQ",40],
-  ["JOR",40],
-  ["CZE",40],
-  ["SVK",40],
-  ["AUT",40],
-  ["SVN",40],
-  ["ITA",40],
-  ["EST",40],
-  ["MEX",40],
-  ["FIN",40],
-  ["LVA",40],
-  ["LTU",40],
-  ["USA",40],
-  ["ZAF",40],
-  ["NAM",40],
-  ["MDG",40],
-  ["TZA",40],
-  ["ZWE",40],
-  ["PAK",40],
-  ["UGA",40],
-  ["KEN",40],
-  ["ZMB",40],
-  ["CHE",40],
-  ["GBR",40],
-  ["TUN",40],
-  ["MAR",40],
-  ["ESP",40],
-  ["PRT",40],
-  ["IND",40],
-  ["IRL",40],
-  ["VNM",40],
-  ["YEM",40],
-  ["OMN",40],
   ["EGY",40],
   ["ARG",40],
-  ["PER",40],
-  ["BGD",40],
-  ["ISL",40],
-  ["POL",40],
-  ["DEU",40],
-  ["NOR",40],
-  ["BGD",40],
-  ["THA",60],
+  ["AZE",40],
+  ["PRK",40],
+  ["URY",40],
+  ["SXM",40],
+  ["CUW",40],
+  ["BMU",40],
+  ["FIN",40],
+  ["ZWE",60],
+  ["TZA",60],
+  ["IRQ",60],
+  ["EST",60],
+  ["LVA",60],
+  ["LTU",60],
+  ["MMR",60],
+  ["PHL",60],
+  ["LAO",60],
+  ["TWN",60],
+  ["VUT",60],
+  ["CHL",60],
+  ["PRY",60],
+  ["PER",60],
+  ["TTO",60],
+  ["COL",60],
+  ["GEO",60],
+  ["JOR",60],
+  ["MEX",60],
+  ["KWT",60],
+  ["QAT",60],
+  ["PAK",60],
+  ["FJI",60],
+  ["TON",60],
+  ["NPL",60],
+  ["BGD",60],
+  ["BLR",60],
+  ["TUN",60],
+  ["MAR",60],
+  ["RWA",60],
+  ["SWZ",60],
   ["HUN",60],
-  ["AUS",60],
-  ["SWE",60],
-  ["RUS",60],
-  ["JPN",60],
-  ["TUR",60],
-  ["IRN",60],
-  ["KAZ",60],
-  ["IDN",60],
-  ["MYS",60],
-  ["UKR",60],
+  ["MDG",60],
+  ["OMN",60],
+  ["NOR",60],
+  ["ISL",60],
+  ["NAM",60],
+  ["KEN",60],
+  ["UGA",60],
+  ["ZMB",60],
+  ["VNM",60],
+  ["USA",60],
   ["NZL",60],
-  ["BRA",60],
-  ["KOR",60],
   ["ISR",60],
-  ["NGA",80],
+  ["GBR",60],
+  ["CZE",60],
+  ["CHE",80],
+  ["PRT",80],
+  ["NLD",80],
+  ["SVK",80],
+  ["AUT",80],
+  ["SVN",80],
+  ["ITA",80],
+  ["DEU",80],
+  ["ESP",80],
+  ["BEL",80],
+  ["BHR",80],
+  ["IRL",80],
+  ["BLZ",80],
+  ["HTI",80],
+  ["PLW",80],
+  ["AUS",80],
+  ["IDN",80],
+  ["JPN",80],
+  ["TUR",80],
+  ["IRN",80],
+  ["BRA",80],
+  ["IND",80],
+  ["BTN",80],
   ["CAN",80],
-  ["SAU",80],
-  ["URY",80],
+  ["MUS",80],
   ["FRA",80],
-  ["GHA",80],
-  ["CHN",80],
-  ["JAM",100],
-  ["BHS",100]
+  ["THA",100],
+  ["ZAF",100],
+  ["KOR",100],
+  ["KAZ",100],
+  ["UKR",100],
+  ["SWE",100],
+  ["MYS",100],
+  ["RUS",100],
+  ["SAU",100],
+  ["ARE",100],
+  ["GHA",100],
+  ["CHN",100],
+  ["JAM",120],
+  ["NGA",120],
+  ["BHS",120]
 ];
 
 var dataset = {};
@@ -115,6 +141,13 @@ function redraw() {
     });
   });
 }// redraw
+function spin() {
+  timer = d3.timer(function() {
+
+    map.projection.rotate([autorotate[10] + velocity[10], autorotate[10] + velocity[10]]);
+
+  });
+};
 function init() {
 
   map = new Datamap({//need global var
@@ -154,24 +187,30 @@ function init() {
         if (data.partnerLink <= 40) {
           return ['',
             '<div style="opacity:1; color:#006D5B" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Research',
+                '<br>' + 'Inactive',
                 ''].join('');        
         }
         if (data.partnerLink == 60) {
           return ['',
             '<div style="opacity:1; color:#8F00FF" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Proof of concept',
+                '<br>' + 'Research',
                 ''].join('');        
         }
         if (data.partnerLink == 80) {
           return ['',
             '<div style="opacity:1; color:#FF4500" class="hoverinfo">' + geo.properties.name,
-                '<br>' + 'Pilot',
+                '<br>' + 'Development',
                 ''].join('');        
         }
         if (data.partnerLink == 100) {
           return ['',
             '<div style="opacity:1; color:#1177e1" class="hoverinfo">' + geo.properties.name,
+                '<br>' + 'Pilot',
+                ''].join('');        
+        }
+        if (data.partnerLink == 120) {
+          return ['',
+            '<div style="opacity:1; color:#9ACD32" class="hoverinfo">' + geo.properties.name,
                 '<br>' + 'Launched',
                 ''].join('');        
         }
@@ -193,41 +232,33 @@ function init() {
   map.graticule();
 
   var timer;
-
-  function spin() {
-    timer = d3.timer(function() {
-      var dt = Date.now() -time;
-
-      map.projection.rotate([autorotate[0] + velocity[0] * dt, autorotate[1] + velocity[1] * dt]);
-
-      redraw();
-    });
-  };
-
+  
+  
   var drag = d3.behavior.drag().on('drag', function() {
-  var dx = d3.event.dx;
-  var dy = d3.event.dy;
-
-  // var rotation = livemapScope.rotation;
-  var rotation = map.projection.rotate();
-  var radius = map.projection.scale();
-  var scale = d3.scale.linear()
-  .domain([-1 * radius, radius])
-  .range([-90, 90]);
-  var degX = scale(dx);
-  var degY = scale(dy);
-  rotation[0] += degX;
-  rotation[1] -= degY;
-  if (rotation[1] > 90) rotation[1] = 90;
-  if (rotation[1] < -90) rotation[1] = -90;
-
-  if (rotation[0] >= 180) rotation[0] -= 360;
-  globalRotation = rotation;
-  redraw();
+    var dx = d3.event.dx;
+    var dy = d3.event.dy;
+    
+    // var rotation = livemapScope.rotation;
+    var rotation = map.projection.rotate();
+    var radius = map.projection.scale();
+    var scale = d3.scale.linear()
+    .domain([-1 * radius, radius])
+    .range([-90, 90]);
+    var degX = scale(dx);
+    var degY = scale(dy);
+    rotation[0] += degX;
+    rotation[1] -= degY;
+    if (rotation[1] > 90) rotation[1] = 90;
+    if (rotation[1] < -90) rotation[1] = -90;
+    
+    if (rotation[0] >= 180) rotation[0] -= 360;
+    globalRotation = rotation;
+    redraw();
   });
 
-  d3.select("#world").select("svg").call(drag);
+d3.select("#world").select("svg").call(drag);
 
 }// init
 
 redraw();
+// spin();
