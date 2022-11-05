@@ -210,7 +210,7 @@ function init() {
         }
         if (data.partnerLink == 120) {
           return ['',
-            '<div style="opacity:1; color:#9ACD32" class="hoverinfo">' + geo.properties.name,
+            '<div style="opacity:1; color:#30D5C8" class="hoverinfo">' + geo.properties.name,
                 '<br>' + 'Launched',
                 ''].join('');        
         }
