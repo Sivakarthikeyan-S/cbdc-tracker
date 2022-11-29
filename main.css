@@ -2,44 +2,48 @@ body{
     background:#000;
 }
 
+
 div#world:before {
-    content:"";
+    content: '';
     position: absolute;
-    top:91px;
-    width:300px;
-    height: 300px;
-    /* background: #07435A;
-    background: -webkit-radial-gradient(70% top,#f2f2f2,#ededed);
-    background: radial-gradient(at 70% top,#f2f2f2,#ededed);
-    box-shadow: 0px 20px 405px rgba(0,0,0,0.18);
-    -moz-box-shadow: 0px 20px 405px  rgba(0,0,0,0.18);
-    -webkit-box-shadow: 0px 20px 40px  rgba(0,0,0,0.18);
-    -o-box-shadow: 0px 20px 40px  rgba(0,0,0,0.18); */
+    top: 228px;
+    width: 500px;
+    height: 500px;
+    /* background: rgb(17, 17, 17); */
+    /* background: -webkit-radial-gradient(70% top,#f2f2f2,#ededed); */
+    /* background: radial-gradient(at 70% top,#f2f2f2,#ededed); */
+    /* box-shadow: 0px 20px 405px rgba(0,0,0,0.18); */
+    /* -moz-box-shadow: 0px 20px 405px  rgba(0,0,0,0.18); */
+    /* -webkit-box-shadow: 0px 20px 40px  rgba(0,0,0,0.18); */
+    /* -o-box-shadow: 0px 20px 40px  rgba(0,0,0,0.18); */
     border-radius: 50%;
-    z-index:-1;
-    animation-name: world;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    z-index: -1;
 }
 
-/* @keyframes world {
-    from { background-position-x: 0px; }
-    to { background-position-x: 210px; }
-  } */
-
-.datamap path.datamaps-graticule{
-    stroke:none!important;
+.datamap path.datamaps-graticule {
+    stroke: none !important;
 }
 
-div.hoverinfo {
-    background-color: #f7f7f7;
-    box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.22);
+div.hoverinfo-title {
+    background-color: #1a1a1a;
+    box-shadow: 0px 2px 14px 1px #000;
     font-size: 18px;
     font-weight: bold;
     padding: 0.5rem 1rem;
+    border: 1px solid #5a5a5a;
     border-radius: 6px;
-    color: #140901ab;
+    color: #1569dd;
+}
+div.hoverinfo {
+    background-color: #1a1a1a;
+    box-shadow: 0px 2px 14px 1px #000;
+    font-size: 14px;
+    font-weight: medium;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #5a5a5a;
+    border-radius: 6px;
+    color: #d1d5db;
 }
 
 .datamaps-hoverover {
