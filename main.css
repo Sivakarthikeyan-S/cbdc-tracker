@@ -49,6 +49,41 @@ div.hoverinfo {
 .datamaps-hoverover {
     margin-left: 350px;
 }
+@media (min-width: 2180px) {
+    .datamaps-hoverover {
+        margin-left: 900px;
+    }
+}
+@media (max-width: 1280px) {
+    .datamaps-hoverover {
+        margin-left: 200px;
+    }
+}
+@media (max-width: 1080px) {
+    .datamaps-hoverover {
+        margin-left: 100px;
+    }
+}
+@media (max-width: 980px) {
+    .datamaps-hoverover {
+        margin-left: 0px;
+    }
+}
+@media (max-width: 780px) {
+    .datamaps-hoverover {
+        margin-left: -100px;
+    }
+}
+@media (max-width: 600px) {
+    .datamaps-hoverover {
+        margin-left: -200px;
+    }
+}
+/* @media (max-width: 400px) {
+    .datamaps-hoverover {
+        margin-left: -300px;
+    }
+} */
 
 path[data-info] {
     cursor:pointer;
