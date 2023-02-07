@@ -347,7 +347,7 @@ function init() {
         if (data.partnerLink == 302) {
           return ['',
             '<div style="opacity:1;" class="hoverinfo-title">' + geo.properties.name + '</div>' +
-            '<div class="hoverinfo" >Status: Development </div>' +
+            '<div class="hoverinfo" >Status: Pilot </div>' +
             '<div class="hoverinfo" >Use case: Both </div>' +
             '<div class="hoverinfo" >Underlying Technology: Both </div>' +
             '<div class="hoverinfo" >Access: Account </div>',
